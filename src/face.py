@@ -33,30 +33,36 @@ a=0
 list_distance= list()
 for iss in range(len(my_listS)): 
 #    print my_listS[iss] #first line of faceS 3223
-    for irr in range(len(my_listR)): 
+    for irr in range(2000): 
 #        print my_listR[irr] #first line of faceR 1223
+        a=0 
         for jss in range (100): 
             jss=0
-            for jrr in range (len(my_listR[irr])):
+            for jrr in range (100):
 #                jrr=jrr+1
                 if jrr<99:
                     x= my_listS[iss][jss+1] #each value from image from faceS
                     y =my_listR[irr][jrr+1] #each value from image from faceR
-                    print x, y # only coefficient of two images
+                    #print x, y # only coefficient of two images
                     zz=pow((float(x))-(float(y)),2)
     #                    print zz 
                     a=a+zz# sum of distance each image
                     jrr=jrr+1
                     jss=jss+1
-                    print jss, jrr
+                    #print jss, jrr
                 else:# and jss>=99:
-                    print 'jrr'
+                   # print 'jrr'
                     irr=irr+1
-                    print jss, jrr
-                    jrr=0      
-            print a
-            q=math.sqrt(a)#distance of each line
-            list_distance.append(q) #still to modified for put an array
-            print q
+                    
+                    print iss, irr
+                    if irr>=2000:
+                        print list_distance
+                        #print list_distance.sort()
+                    jrr=0 
+        print a
+        q=math.sqrt(a)#distance of each line
+        list_distance.append(q) #still to modified for put an array
+        print list_distance
+        
 
 
