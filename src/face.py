@@ -26,6 +26,7 @@ with open('D:\\ProjectPFE\\faces\\faceR', 'r') as fr:
 #        print LineSAray[1]
         my_listS.append(LineSAray)#its all images of faceS
         #        print(LineSAray) #first line of faceS without number of image 
+nassar = 1 
 jrr=0
 jss=0
 iss=0
