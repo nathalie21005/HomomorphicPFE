@@ -1,5 +1,5 @@
 ''' this script shows the original and the PCA reconstructed 
-images, you just have to supply a face number from the data set 
+images, you just have to supply a faceEuclideanDistance number from the data set 
 see help-show-py.txt for more details''' 
 
 from mean_face import mean_face
@@ -10,7 +10,7 @@ import matplotlib.cm as cm # color map
 import pylab
 
 
- 
+
 #print mean_face
 
 #E=eigenfaces.split('\n')
@@ -19,7 +19,7 @@ import pylab
 
 M=np.load("eigenfaces.npy")
 
-print "give me a face number..." 
+print "give me a faceEuclideanDistance number..." 
 print "from training dataset (1223-->3222)"
 #print "testing (3223-->5222)"
 nb = raw_input()
@@ -45,7 +45,7 @@ with open ("../faces/faceR") as faceR:
 		
 		print "original ..."
 		f.add_subplot(122)
-		orig = np.fromfile("../faces/rawdata/"+nb, dtype=np.uint8)		
+		orig = np.fromfile("../faces/rawdata/rawdata/"+nb, dtype=np.uint8)		
 		#print len(orig)
 		#print 128*128  
 		plt.imshow(orig.reshape(128,128), cmap = cm.Greys_r)
