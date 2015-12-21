@@ -79,7 +79,7 @@ with open('../faces/faceR', 'r') as fr:
                 x=List_imagenumber_distance[indice_in_List_imagenumber_distance][1]
                 list_dist_for_sort.append(x)
             list_with_sort=quickSort(list_dist_for_sort)
-            print list_with_sort
+            #print list_with_sort
             for indice in range(0,5):
                 for indice_in_List_imagenumber_distance in range (len(List_imagenumber_distance)):
                     if list_with_sort[indice]== List_imagenumber_distance[indice_in_List_imagenumber_distance][1]:

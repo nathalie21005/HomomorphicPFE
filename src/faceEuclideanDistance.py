@@ -81,9 +81,9 @@ for iss in range(0,1):
         q=math.sqrt(a)#distance of each line
         list_distance.append(irr) #still to modified for put an array
         list_distance.append(q)
-        print quickSort(list_distance)
+        #print quickSort(list_distance)
         List_imagenumber_distance.append(list_distance)
-    #print List_imagenumber_distance
+    print List_imagenumber_distance
 for indice_in_List_imagenumber_distance in range (len(List_imagenumber_distance)):
     x=List_imagenumber_distance[indice_in_List_imagenumber_distance][1]
     list_dist_for_sort.append(x)
