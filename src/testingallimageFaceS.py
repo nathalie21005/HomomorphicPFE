@@ -52,7 +52,7 @@ with open('../faces/faceR', 'r') as fr:
         
         for iss in range(0,1):
             iss=0
-            print nb, LineSAray
+            print nb
             my_list_nbreofimage=list()
             List_imagenumber_distance=list()
             for irr in range(len(my_listR)): 
@@ -72,7 +72,7 @@ with open('../faces/faceR', 'r') as fr:
                 q=math.sqrt(a)#distance of each line
                 list_distance.append(irr) #still to modified for put an array
                 list_distance.append(q)
-                print list_distance
+                #print list_distance
                 List_imagenumber_distance.append(list_distance)
             print List_imagenumber_distance
             for indice_in_List_imagenumber_distance in range (len(List_imagenumber_distance)):
