@@ -1,6 +1,6 @@
 ''' this code takes one face number as input 
-and compute the euclidean distance to all the training 
-faces, then it returns the k nearest one''' 
+and computes the euclidean distance to all the training 
+faces, then it returns the k nearest ones''' 
 
 import os
 import sys 
@@ -49,6 +49,7 @@ with open('../faces/faceR', 'r') as faceR:
     distances = [ (x, distTo[x] )for x in distTo.keys()]
     distances.sort(key=lambda x: x[1])
     distances = distances [:k]
+    #print distances 
 
 # check the labels
 wlabels = {}
@@ -75,7 +76,7 @@ with open ("../faces/faceDS") as faceDS:
 with open('../faces/faceDR', 'r') as faceDR:
     distances.sort(key = lambda x: x[0])
     print distances 
-    Cgender, Cage, Crace, Cimpression =0, 0, 0, 0 
+    Lgender, Lage, Lrace, Limpression = [], [], [], [] 
     i=0
     print nb, wlabels.values() 
     print "nei |gender | age | race | impression "
@@ -85,18 +86,26 @@ with open('../faces/faceDR', 'r') as faceDR:
             
             tokens = re.split(r'[( )]',line)
             print distances[i][0], tokens[5], tokens[10], tokens[14], tokens[18] 
-            if tokens[5] == wlabels["gender"]: 
-                Cgender+=1
-            if tokens[10] == wlabels["age"]:
-                Cage+=1
-            if tokens[14] == wlabels["race"]:
-                Crace+=1
-            if tokens[18] == wlabels["impression"]:
-                Cimpression+=1
+            #if tokens[5] == wlabels["gender"]: 
+            Lgender.append(tokens[5])
+
+            #if tokens[10] == wlabels["age"]:
+            Lage.append(tokens[10])
+            #if tokens[14] == wlabels["race"]:
+            Lrace.append(tokens[14])
+            #if tokens[18] == wlabels["impression"]:
+            Limpression.append(tokens[18])
             i+=1
             if i==k: 
                 break 
 
-    print Cgender, Cage, Crace, Cimpression
-    print Cgender>k/2, Cage>k/2, Crace>k/2, Cimpression>k/2
+    from collections import Counter
+    Cgender = Counter( Lgender) 
+    Cage = Counter (Lage) 
+    Crace = Counter (Lrace) 
+    Cimpression = Counter (Limpression) 
+    print wlabels["gender"] ==  Cgender.most_common()[0][0] ,\
+     wlabels["age"] == Cage.most_common()[0][0] ,\
+     wlabels["race"] == Crace.most_common()[0][0], \
+     wlabels["impression"] == Cimpression.most_common()[0][0]
 
